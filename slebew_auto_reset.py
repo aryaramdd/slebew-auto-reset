@@ -16,33 +16,11 @@ except ImportError:
 
 INTERVAL = 0.5
 LOG_FILE = os.path.expanduser("~/slebew_log.txt")
-CONFIG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "slebew_config.json")
-EXAMPLE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "slebew_config.example.json")
 
 BASE = "https://hiphub.cloud"
 
-
-def load_config():
-    session = os.environ.get("SLEBEW_SESSION", "")
-    key = os.environ.get("SLEBEW_KEY", "")
-    if os.path.isfile(CONFIG_FILE):
-        try:
-            with open(CONFIG_FILE, encoding="utf-8") as f:
-                cfg = json.load(f)
-            session = cfg.get("session", session)
-            key = cfg.get("key", key)
-        except (json.JSONDecodeError, OSError) as e:
-            print(f"[!] Config gagal dibaca: {e}")
-    if not session:
-        print("[!] Session belum diisi!")
-        print("    1. Copy %s jadi %s" % (EXAMPLE_FILE, CONFIG_FILE))
-        print("    2. Isi 'session' dengan cookie session dari hiphub.cloud")
-        print("    Atau: export SLEBEW_SESSION='isi_session_lo'")
-        sys.exit(1)
-    return session, key or "HIPHUB-PREMIUM-FBF7-EA8B"
-
-
-SESSION, KEY = load_config()
+SESSION = "f1745290c607b177028704e6:48b3920ad0da4b5e69fe7bdb5125e3fb3c3beb605ade998115753818df679fb5d7c9a6befc2689e9bb78e860be22ad671a1b6b4ad2abe6d97c34426ae76bb0e8ed72600eefd6fc428112a1d05bb9424eef11b171b6623901e86ab4c1:5276cdca3c9a7b03ff5200459c721499"
+KEY = "HIPHUB-PREMIUM-FBF7-EA8B"
 
 HEADERS = {
     "Cookie": f"session={SESSION}",
