@@ -1,0 +1,13 @@
+# secrets - jangan pernah di-commit
+slebew_config.json
+hiphub_config.json
+hiphub_log.txt
+slebew_log.txt
+hiphub_auto_reset.ps1
+HIPHUB AUTO RESET.bat
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
